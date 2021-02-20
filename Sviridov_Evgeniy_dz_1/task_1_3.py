@@ -1,7 +1,8 @@
-numbers = []
-count = 20
+COUNT = 20
 
-for i in range(count + 1):
+numbers = []
+
+for i in range(COUNT + 1):
     numbers.append(i)
 
 for i in numbers:
