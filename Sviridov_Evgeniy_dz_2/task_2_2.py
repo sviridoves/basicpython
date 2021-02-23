@@ -12,10 +12,11 @@ for el in task_list:
     else:
         digit_count = 0
         digit_index = -1
-        for ch in el:
-            if ch.isdigit():
-                digit_count += 1
-            digit_index += 1
+        if not el.isalnum():
+            for ch in el:
+                if ch.isdigit():
+                    digit_count += 1
+                digit_index += 1
         if digit_count == 0:
             new_task_list.append(el)
         elif digit_count > 1:
