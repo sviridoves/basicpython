@@ -2,8 +2,7 @@ from requests import get
 
 
 def currency_rates(currency='USD'):
-    content = (get('http://www.cbr.ru/scripts/XML_daily.asp')).content
-    content = str(content)
+    content = (get('http://www.cbr.ru/scripts/XML_daily.asp')).text
     char_code = content.find(currency.upper())
     if char_code == -1:
         return None
