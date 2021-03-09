@@ -1,35 +1,13 @@
-"""
-3. Есть два списка:
-tutors = [
-    'Иван', 'Анастасия', 'Петр', 'Сергей',
-    'Дмитрий', 'Борис', 'Елена'
-]
-klasses = [
-    '9А', '7В', '9Б', '9В', '8Б', '10А', '10Б', '9А'
-]
-Необходимо реализовать генератор, возвращающий кортежи вида (<tutor>, <klass>), например:
-('Иван', '9А')
-('Анастасия', '7В')
-...
-Количество генерируемых кортежей не должно быть больше длины списка tutors. Если в списке klasses меньше элементов,
- чем в списке tutors, необходимо вывести последние кортежи в виде: (<tutor>, None), например:
-('Станислав', None)
-
-### Доказать, что вы создали именно генератор. Проверить его работу вплоть до истощения. Подумать, в каких ситуациях
- генератор даст эффект.
-"""
-"""
-def gen_numbers(n):
-    for i in range(1, n+1, 2):
-        yield i
+tutors = ['Иван', 'Анастасия', 'Петр', 'Сергей', 'Дмитрий', 'Борис', 'Елена']
+classes = ['9А', '7В', '9Б', '9В', '8Б', '10А']
 
 
-add_to_15 = gen_numbers(15)
-print(type(add_to_15))
-for num in add_to_15:
-    print(num, end=' ')
-"""
+def get_tuple(tutors_def, classes_def):
+    for i in range(len(tutors_def)):
+        yield tutors_def[i], (None if i >= len(classes_def) else classes_def[i])
 
 
-
-
+classes_tutors = get_tuple(tutors, classes)
+print(type(classes_tutors))
+for el in classes_tutors:
+    print(el)
